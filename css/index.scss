@@ -1,2 +1,134 @@
 ---
 ---
+// General
+
+body {
+  background: black;
+  font-size: 10px;
+  font-family: Arial,Helvetica,sans-serif;
+  margin: 0;
+}
+
+// Video background
+
+// TODO
+#video-background {
+  background: center url({{site.baseurl}}/images/background-poster.webp) no-repeat;
+  height: auto;
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  width: auto;
+  z-index: -100;
+}
+
+// #video-background {
+//   background: center url(/ourvinyl-productions/images/background-poster.webp) no-repeat;
+//   height: 720px;
+//   position: relative;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   z-index: -100;
+// }
+
+#slide-over-video-background {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// Header
+
+header {
+  height: 128px;
+  margin: 0 auto;
+  width: 1024px;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    color: white;
+    font: normal normal normal 16px/1.4em roboto,sans-serif;
+    line-height: 77px;
+    margin: 0 4px;
+    padding: 16px 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      border-top: white solid 4px;
+    }
+  }
+}
+
+// Introduction section
+
+#introduction-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  // indroduction-section height = video background height - header height
+  height: 592px;
+  justify-content: center;
+
+  h1 {
+    color: white;
+    font: bold 18px sans-serif;
+    letter-spacing: 0.4em;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+#reel-link {
+  color: white;
+  display: block;
+  font: 18px barlow,sans-serif;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  svg {
+    fill: rgb(255, 255, 255);
+    fill-opacity: 1;
+    height: 1em;
+    position: relative;
+    stroke: rgb(94, 151, 255);
+    stroke-opacity: 1;
+    stroke-width: 0;
+    top: .125em;
+    width: 1em;
+  }
+}
+
+// Work section
+
+#work-section {
+  background: white;
+}
+
+footer {
+  background: white;
+}
