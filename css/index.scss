@@ -11,14 +11,14 @@ body {
 
 // Video background
 
-// TODO
 #video-background {
   background: center url({{site.baseurl}}/images/background-poster.webp) no-repeat;
+  background-size: cover;
   height: auto;
   left: 50%;
   min-height: 100%;
   min-width: 100%;
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
@@ -26,21 +26,6 @@ body {
   -webkit-transform: translateX(-50%) translateY(-50%);
   width: auto;
   z-index: -100;
-}
-
-// #video-background {
-//   background: center url(/ourvinyl-productions/images/background-poster.webp) no-repeat;
-//   height: 720px;
-//   position: relative;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   z-index: -100;
-// }
-
-#slide-over-video-background {
-  position: absolute;
-  top: 0;
-  width: 100%;
 }
 
 // Header
@@ -129,6 +114,38 @@ nav {
   background: white;
 }
 
+// Footer
+
 footer {
   background: white;
+  height: 256px;
+}
+
+#footer-content {
+  margin: 0 auto;
+  padding: 48px;
+  position: relative;
+  width: 1024px;
+}
+
+#copyright {
+  font: 16px barlow,sans-serif;
+  text-transform: uppercase;
+}
+
+#social-icon-container {
+  position: absolute;
+  right: 0;
+  top: 48px;
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    height: 43px;
+    // TODO Is this necessary?
+    object-fit: cover;
+    width: 43px;
+  }
 }
