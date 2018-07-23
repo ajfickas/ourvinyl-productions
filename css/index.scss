@@ -28,6 +28,20 @@ body {
   z-index: -100;
 }
 
+// Prevents video background from showing beneath the footer.
+// This can happen when the viewport is wide enough to cause the
+// video's height to be longer than the page's content.
+// This acts a fixed layer under the page that extends to the bottom.
+#video-background-cover {
+  background: white;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 720px;
+  z-index: -1;
+}
+
 // Header
 
 header {
