@@ -6,6 +6,8 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Barlow|Roboto" rel="stylesheet">
     <link href="{{site.baseurl}}/css/index.css" rel="stylesheet">
+    <!-- TODO Make async and/or place at bottom? -->
+    <script src="{{site.baseurl}}/js/index.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
@@ -22,29 +24,53 @@
     <header>
         <img src="{{site.baseurl}}/images/logo.png">
         <nav class="menu">
-            <ul>
-              <li><a href="#">Work</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </nav>
+          <ul>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
     </header>
     <section id="introduction-section">
       <h1>Welcome to OurVinyl Productions LLC</h1>
-      <a id="reel-link" href="#">
-        <svg viewBox="20 20 160 160" height="200" width="200" xmlns="http://www.w3.org/2000/svg" data-type="shape" role="img" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
-          <g>
-            <path d="M100 20c-44.184 0-80 35.817-80 80.001C20 144.184 55.817 180 100 180s80-35.817 80-79.999S144.183 20 100 20zm28.726 82.946l-4.492 4.492-33.758 33.758a4.164 4.164 0 0 1-5.89 0l-1.547-1.547a4.167 4.167 0 0 1 0-5.891l30.812-30.812a4.165 4.165 0 0 0 0-5.891L83.038 66.243a4.167 4.167 0 0 1 0-5.891l1.547-1.547a4.164 4.164 0 0 1 5.89 0l33.758 33.758 4.492 4.492a4.164 4.164 0 0 1 .001 5.891z"></path>
-          </g>
+      {% include video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
+    </section>
+    <section id="work-section">
+      <div class="featured-poster" role="presentation" style="background-image: url({{site.baseurl}}/images/work/featured-posters/2018-reel.jpg);">
+        <div class="content">
+          <h2>2018 Reel</h2>
+          {% include video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
+        </div>
+      </div>
+      <div class="carousel">
+        <nav>
+          <div class="carousel-previous-button disabled" role="button">
+            <svg viewBox="0 0 53 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+              <path fill="currentColor" stroke-linejoin="miter" d="M5.16 99.14L2.15 96.13 48.6 50.11 2.15 4.3 5.16 1.29 54.62 50.11"></path>
+            </svg>
+          </div>
+          <div class="carousel-next-button disabled" role="button">
+            <svg viewBox="0 0 53 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+              <path fill="currentColor" stroke-linejoin="miter" d="M5.16 99.14L2.15 96.13 48.6 50.11 2.15 4.3 5.16 1.29 54.62 50.11"></path>
+            </svg>
+          </div>
+        </nav>
+        <div class="carousel-content-container">
+          {% for video in site.data.carousel-videos %}
+            {% include carousel-video-poster.html href=video.href poster=video.poster title=video.title %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <div id="video-player">
+      <div class="close-button" role="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+          <path stroke="currentColor" fill="currentColor" stroke-linecap="round" fill-rule="evenodd" d="M9.996 9.29L.707 0 0 .707l9.29 9.29L0 19.285l.707.707 9.29-9.29 9.289 9.29.707-.707-9.29-9.29 9.29-9.289L19.286 0l-9.29 9.29z" transform="translate(1, 1)"></path>
         </svg>
-        <span>Play Reel</span>
-      </a>
-    </section>
-    <!-- <section id="work-section">
-      <h1>This is the work section.</h1>
-    </section>
-    <section id="services-section">
+      </div>
+    </div>
+    <!-- <section id="services-section">
         <h1>This is the services section.</h1>
     </section>
     <section id="about-section">

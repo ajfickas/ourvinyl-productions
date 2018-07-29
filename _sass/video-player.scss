@@ -1,0 +1,45 @@
+#video-player {
+  background: rgba(0, 0, 0, 0.85);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  &.show {
+    display: block;
+  }
+
+  iframe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .close-button {
+    cursor: pointer;
+    height: 70px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70px;
+
+    &:hover {
+      svg {
+        color: rgb(118, 118, 118);
+      }
+    }
+    svg {
+      color: white;
+      height: 17px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 17px;
+    }
+  }
+}

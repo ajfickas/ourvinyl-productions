@@ -7,13 +7,13 @@ body {
   font-size: 10px;
   font-family: Arial,Helvetica,sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 // Video background
 
 #video-background {
-  background: center url({{site.baseurl}}/images/background-poster.webp) no-repeat;
-  background-size: cover;
+  background: center / cover url({{site.baseurl}}/images/background-poster.webp) no-repeat;
   height: auto;
   left: 50%;
   min-height: 100%;
@@ -47,35 +47,36 @@ body {
 header {
   height: 128px;
   margin: 0 auto;
+  // TODO Adjust width for smaller screen sizes
   width: 1024px;
   position: relative;
-}
 
-nav {
-  position: absolute;
-  right: 0;
-  top: 0;
+  nav {
+    position: absolute;
+    right: 0;
+    top: 0;
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-  }
+    ul {
+      list-style-type: none;
+      margin: 0;
+    }
 
-  li {
-    display: inline-block;
-  }
+    li {
+      display: inline-block;
+    }
 
-  a {
-    color: white;
-    font: normal normal normal 16px/1.4em roboto,sans-serif;
-    line-height: 77px;
-    margin: 0 4px;
-    padding: 16px 8px;
-    text-decoration: none;
-    text-transform: uppercase;
+    a {
+      color: white;
+      font: normal normal normal 16px/1.4em roboto,sans-serif;
+      line-height: 77px;
+      margin: 0 4px;
+      padding: 16px 8px;
+      text-decoration: none;
+      text-transform: uppercase;
 
-    &:hover {
-      border-top: white solid 4px;
+      &:hover {
+        border-top: white solid 4px;
+      }
     }
   }
 }
@@ -100,10 +101,11 @@ nav {
   }
 }
 
-#reel-link {
+// Video link include
+.video-link {
   color: white;
   display: block;
-  font: 18px barlow,sans-serif;
+  font: 18px barlow, sans-serif;
   letter-spacing: 0.15em;
   text-align: center;
   text-decoration: none;
@@ -122,10 +124,148 @@ nav {
   }
 }
 
+// #video-link {
+//   color: white;
+//   display: block;
+//   font: 18px barlow, sans-serif;
+//   letter-spacing: 0.15em;
+//   text-align: center;
+//   text-decoration: none;
+//   text-transform: uppercase;
+
+//   svg {
+//     fill: rgb(255, 255, 255);
+//     fill-opacity: 1;
+//     height: 1em;
+//     position: relative;
+//     stroke: rgb(94, 151, 255);
+//     stroke-opacity: 1;
+//     stroke-width: 0;
+//     top: .125em;
+//     width: 1em;
+//   }
+// }
+
 // Work section
 
 #work-section {
   background: white;
+  padding: 128px 0 0;
+
+  video-link {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.featured-poster {
+  background: center / cover no-repeat;
+  height: 572px;
+  position: relative;
+  width: 100%;
+
+  h2 {
+    color: white;
+    font: bold 64px arial;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .video-link {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.poster {
+  background: center / cover no-repeat;
+  height: 270px;
+  min-width: 480px;
+  position: relative;
+  width: 480px;
+
+  h3 {
+    color: white;
+    font: bold 24px arial;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: normal;
+    width: 400px;
+  }
+
+  .content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// Carousel
+
+.carousel {
+  background: black;
+  position: relative;
+
+  nav {
+
+    svg {
+      color: white;
+      height: 24px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+    }
+  }
+}
+
+.carousel-content-container {
+  display: flex;
+  transform: translate3d(0px, 0, 0);
+  white-space: nowrap;
+}
+
+@mixin carousel-button {
+  background-color: rgba(0,0,0,.8);
+  cursor: pointer;
+  height: 66px;
+  position: absolute;
+  width: 50px;
+  z-index: 1;
+
+  &.disabled {
+    display: none;
+  }
+}
+
+.carousel-previous-button {
+  @include carousel-button;
+  left: 0;
+  top: 50%;
+  transform: scaleX(-1) translateY(-50%);
+}
+
+.carousel-next-button {
+  @include carousel-button;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 // Footer
@@ -139,6 +279,7 @@ footer {
   margin: 0 auto;
   padding: 48px;
   position: relative;
+  // TODO Adjust width for smaller screen sizes
   width: 1024px;
 }
 
@@ -163,3 +304,5 @@ footer {
     width: 43px;
   }
 }
+
+@import 'video-player';
