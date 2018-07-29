@@ -1,0 +1,35 @@
+<section id="work-section">
+    <div class="featured-poster" style="background-image: url({{site.baseurl}}/images/work/featured-posters/2018-reel.jpg);">
+      <div class="content">
+        <h2>2018 Reel</h2>
+        {% include components/video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
+      </div>
+    </div>
+    <div class="carousel">
+      <nav>
+        <div class="carousel-previous-button disabled" role="button">
+          <svg viewBox="0 0 53 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+            <path fill="currentColor" stroke-linejoin="miter" d="M5.16 99.14L2.15 96.13 48.6 50.11 2.15 4.3 5.16 1.29 54.62 50.11"></path>
+          </svg>
+        </div>
+        <div class="carousel-next-button disabled" role="button">
+          <svg viewBox="0 0 53 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+            <path fill="currentColor" stroke-linejoin="miter" d="M5.16 99.14L2.15 96.13 48.6 50.11 2.15 4.3 5.16 1.29 54.62 50.11"></path>
+          </svg>
+        </div>
+      </nav>
+      <div class="carousel-content-container">
+        {% for video in site.data.carousel-videos %}
+          {% include carousel-video-poster.html href=video.href poster=video.poster title=video.title %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <div id="video-player">
+    <div class="close-button" role="button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+        <path stroke="currentColor" fill="currentColor" stroke-linecap="round" fill-rule="evenodd" d="M9.996 9.29L.707 0 0 .707l9.29 9.29L0 19.285l.707.707 9.29-9.29 9.289 9.29.707-.707-9.29-9.29 9.29-9.289L19.286 0l-9.29 9.29z" transform="translate(1, 1)"></path>
+      </svg>
+    </div>
+  </div>
+</section>

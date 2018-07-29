@@ -1,5 +1,8 @@
 ---
 ---
+@import 'mixins';
+@import 'variables';
+
 // General
 
 body {
@@ -67,7 +70,7 @@ header {
 
     a {
       color: white;
-      font: normal normal normal 16px/1.4em roboto,sans-serif;
+      font: normal normal normal 16px/1.4em $font-family-roboto;
       line-height: 77px;
       margin: 0 4px;
       padding: 16px 8px;
@@ -105,7 +108,7 @@ header {
 .video-link {
   color: white;
   display: block;
-  font: 18px barlow, sans-serif;
+  font: 18px $font-family-barlow;
   letter-spacing: 0.15em;
   text-align: center;
   text-decoration: none;
@@ -127,7 +130,7 @@ header {
 // #video-link {
 //   color: white;
 //   display: block;
-//   font: 18px barlow, sans-serif;
+//   font: 18px $font-family-barlow;
 //   letter-spacing: 0.15em;
 //   text-align: center;
 //   text-decoration: none;
@@ -150,7 +153,6 @@ header {
 
 #work-section {
   background: white;
-  padding: 128px 0 0;
 
   video-link {
     color: white;
@@ -284,7 +286,7 @@ footer {
 }
 
 #copyright {
-  font: 16px barlow,sans-serif;
+  font: 16px $font-family-barlow;
   text-transform: uppercase;
 }
 
@@ -305,4 +307,9 @@ footer {
   }
 }
 
-@import 'video-player';
+// Components
+@import 'components/section-header';
+@import 'components/video-player';
+
+// Sections
+@import 'sections/services/index';

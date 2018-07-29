@@ -1,0 +1,90 @@
+.service {
+  height: 450px;
+  position: relative;
+
+  h4 {
+    font-size: 24px;
+    left: 50%;
+    letter-spacing: 4px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 160px;
+    transform: translateX(-50%);
+  }
+
+  p {
+    font: 16px $font-family-barlow;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 236px;
+    transform: translateX(-50%);
+  }
+
+  svg {
+    @include centered-absolute;
+  }
+
+  &.audio {
+    background-color: lightgray;
+    color: black;
+
+    svg {
+      height: 81px;
+      width: 81px;
+
+      path {
+        fill: black;
+      }
+    }
+  }
+
+  &.photo {
+    background-color: white;
+    color: black;
+
+    svg {
+      height: 109px;
+      width: 80px;
+
+      path {
+        fill: black;
+      }
+    }
+  }
+
+  &.storytelling {
+    background-color: darkgray;
+    color: white;
+
+    svg {
+      height: 87px;
+      width: 73px;
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  &.video {
+    background-color: black;
+    color: white;
+
+    svg {
+      height: 84px;
+      width: 75px;
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  .svg-container {
+    left: 50%;
+    position: absolute;
+    top: 118px;
+    transform: translateX(-50%);
+  }
+}

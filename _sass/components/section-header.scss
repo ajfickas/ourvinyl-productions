@@ -1,0 +1,23 @@
+.section-header {
+  background: center / cover no-repeat;
+  color: white;
+  height: 572px;
+  position: relative;
+  width: 100%;
+
+  h2 {
+    font: bold 32px $font-family-barlow;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    font: 16px $font-family-barlow;
+    text-transform: uppercase;
+  }
+
+  .content-container {
+    @include centered-absolute;
+    text-align: center;
+  }
+}
