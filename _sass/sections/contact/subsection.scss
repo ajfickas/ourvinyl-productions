@@ -1,0 +1,44 @@
+.contact-subsection {
+  height: 384px;
+  text-align: center;
+
+  &.contact-us {
+    background-color: black;
+    color: white;
+
+    a {
+      color: white;
+    }
+  }
+
+  &.visit-us {
+    // TODO Pull into variables
+    background-color: $brown;
+    color: white;
+  }
+
+  &.tell-us {
+    background-color: white;
+    color: black;
+
+    hr {
+      border-color: black;
+    }
+  }
+
+  h3 {
+    font: bold 32px $font-family-barlow;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  hr {
+    border: 4px solid white;
+    width: 36px;
+  }
+
+  .content {
+    font: 16px $font-family-barlow;
+    margin: 32px 0 0;
+  }
+}

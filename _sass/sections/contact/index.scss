@@ -1,0 +1,13 @@
+#contact-section {
+
+  .contact-section-content-container {
+    display: flex;
+
+    & > * {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+  }
+}
+
+@import 'sections/contact/subsection';
