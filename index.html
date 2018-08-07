@@ -1,31 +1,18 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+script_name: index
 ---
-<html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Barlow|Roboto" rel="stylesheet">
-    <link href="{{site.baseurl}}/css/index.css" rel="stylesheet">
-    <!-- TODO Make async and/or place at bottom? -->
-    <script src="{{site.baseurl}}/js/index.js" type="text/javascript"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <video autoplay
-      loop
-      id="video-background"
-      muted
-      playsinline
-      poster="{{site.baseurl}}/images/background-poster.webp">
-      <source src="{{site.baseurl}}/videos/video-720p.mp4" type="video/mp4">
-    </video>
-    <div id="video-background-cover"></div>
-    {% include sections/header/index.html %}
-    {% include sections/introduction/index.html %}
-    {% include sections/work/index.html %}
-    {% include sections/services/index.html %}
-    {% include sections/about/index.html %}
-    {% include sections/contact/index.html %}
-    {% include sections/footer/index.html %}
-  </body>
-</html>
+<!-- TODO Pull into introduction include -->
+<video autoplay
+  loop
+  id="video-background"
+  muted
+  playsinline
+  poster="{{site.baseurl}}/images/background-poster.webp">
+  <source src="{{site.baseurl}}/videos/video-720p.mp4" type="video/mp4">
+</video>
+<!-- <div id="video-background-cover"></div> -->
+<section id="introduction-section">
+  <h1>Welcome to OurVinyl Productions LLC</h1>
+  {% include components/video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
+</section>
+{% include components/video-player.html %}

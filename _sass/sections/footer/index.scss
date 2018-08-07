@@ -1,0 +1,39 @@
+footer {
+  background: white;
+  height: 256px;
+}
+
+#footer-content {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1024px;
+
+  & > * {
+    margin: 32px 32px 0 32px;
+  }
+}
+
+#copyright {
+  font: 16px $font-family-barlow;
+  height: 48px;
+  line-height: 48px;
+  text-transform: uppercase;
+}
+
+#social-icon-container {
+  height: 48px;
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    height: 43px;
+    // TODO Is this necessary?
+    object-fit: cover;
+    width: 43px;
+  }
+}

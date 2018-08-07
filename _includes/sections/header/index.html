@@ -1,11 +1,10 @@
 <header>
-  <img src="{{site.baseurl}}/images/logo.png">
+  <a class="logo" href="{{site.baseurl}}/">
+    <img height="85" src="{{site.baseurl}}/images/logo.png" width="286px">
+  </a>
   <nav class="menu">
     <ul>
-      <li><a href="#">Work</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li>{% include components/navigation-link.html content="Services" href="/services" %}</li>
     </ul>
   </nav>
 </header>

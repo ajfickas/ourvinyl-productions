@@ -48,39 +48,41 @@ body {
 // Header
 
 header {
-  height: 128px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0 auto;
-  // TODO Adjust width for smaller screen sizes
-  width: 1024px;
-  position: relative;
+  max-width: 1024px;
 
   nav {
-    position: absolute;
-    right: 0;
-    top: 0;
+    margin: 0 32px;
 
     ul {
       list-style-type: none;
       margin: 0;
-    }
-
-    li {
-      display: inline-block;
+      padding: 0;
     }
 
     a {
       color: white;
+      display: block;
       font: normal normal normal 16px/1.4em $font-family-roboto;
-      line-height: 77px;
-      margin: 0 4px;
-      padding: 16px 8px;
+      height: 36px;
+      line-height: 36px;
+      margin: 4px 0 0;
       text-decoration: none;
       text-transform: uppercase;
 
-      &:hover {
+      &.active, &:hover {
         border-top: white solid 4px;
+        margin: 0;
       }
     }
+  }
+
+  .logo {
+    margin: 0 16px;
   }
 }
 
@@ -90,8 +92,7 @@ header {
   align-items: center;
   display: flex;
   flex-direction: column;
-  // indroduction-section height = video background height - header height
-  height: 592px;
+  height: 75%;
   justify-content: center;
 
   h1 {
@@ -101,6 +102,12 @@ header {
     margin: 0;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  @media (max-height: px) {
+    div {
+      border: 2px solid blue;
+    }
   }
 }
 
@@ -270,42 +277,6 @@ header {
   transform: translateY(-50%);
 }
 
-// Footer
-
-footer {
-  background: white;
-  height: 256px;
-}
-
-#footer-content {
-  margin: 0 auto;
-  padding: 48px;
-  position: relative;
-  // TODO Adjust width for smaller screen sizes
-  width: 1024px;
-}
-
-#copyright {
-  font: 16px $font-family-barlow;
-  text-transform: uppercase;
-}
-
-#social-icon-container {
-  position: absolute;
-  right: 0;
-  top: 48px;
-
-  a {
-    text-decoration: none;
-  }
-
-  img {
-    height: 43px;
-    // TODO Is this necessary?
-    object-fit: cover;
-    width: 43px;
-  }
-}
 
 // Components
 @import 'components/image-background';
@@ -316,3 +287,4 @@ footer {
 @import 'sections/services/index';
 @import 'sections/about/index';
 @import 'sections/contact/index';
+@import 'sections/footer/index';
