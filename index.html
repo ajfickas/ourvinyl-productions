@@ -2,6 +2,7 @@
 script_name: index
 ---
 <!-- TODO Pull into introduction include -->
+{% include sections/header/index.html %}
 <video autoplay
   loop
   id="video-background"
@@ -16,3 +17,4 @@ script_name: index
   {% include components/video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
 </section>
 {% include components/video-player.html %}
+{% include sections/footer/index.html %}

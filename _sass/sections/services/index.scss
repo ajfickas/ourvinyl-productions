@@ -9,4 +9,9 @@
   }
 }
 
+// TODO Move to own component?
+.page-image-background {
+  background: center / cover no-repeat;
+}
+
 @import 'sections/services/section';
