@@ -1,15 +1,30 @@
-#services-section {
 
-  .services-container {
-    display: flex;
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 2048px;
+  margin: 0 auto;
 
-    & > * {
-      flex-grow: 1;
-    }
+  & > * {
+    flex-grow: 1;
   }
 }
 
-// TODO Move to own component?
+.services-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & > * {
+    flex-grow: 1;
+  }
+}
+
+.service {
+  min-width: 384;
+}
+
 .page-image-background {
   background: center / cover no-repeat;
 }

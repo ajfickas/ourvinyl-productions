@@ -7,12 +7,14 @@
 
   h2 {
     font: bold 32px $font-family-barlow;
+    letter-spacing: 16px;
     margin: 0;
     text-transform: uppercase;
   }
 
   p {
     font: 16px $font-family-barlow;
+    letter-spacing: 2px;
     text-transform: uppercase;
   }
 
