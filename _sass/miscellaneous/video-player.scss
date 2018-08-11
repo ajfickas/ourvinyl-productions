@@ -46,10 +46,8 @@
 
   .video-container {
     position: relative;
-    // TODO Support desired aspect ratios
-    // padding-bottom: 56.25%; /* 16:9 */
-    padding-bottom: 53.92%; /* ?:? */
-    padding-top: 25px;
+    // Support desired aspect ratio -- 56.25% fits 16:9
+    padding-bottom: 56.25%;
     height: 0;
     width: 100%;
   }
