@@ -1,0 +1,38 @@
+#header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1024px;
+
+  nav {
+    margin: 0 32px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: white;
+      display: block;
+      font: normal normal normal 16px/1.4em $font-family-roboto;
+      height: 36px;
+      line-height: 36px;
+      margin: 4px 0 0;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &.active, &:hover {
+        border-top: white solid 4px;
+        margin: 0;
+      }
+    }
+  }
+
+  .logo {
+    margin: 0 16px;
+  }
+}

@@ -2,7 +2,7 @@
     <div class="featured-poster" style="background-image: url({{site.baseurl}}/images/work/featured-posters/2018-reel.jpg);">
       <div class="content">
         <h2>2018 Reel</h2>
-        {% include components/video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
+        {% include miscellaneous/video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
       </div>
     </div>
     <div class="carousel">
@@ -20,10 +20,10 @@
       </nav>
       <div class="carousel-content-container">
         {% for video in site.data.carousel-videos %}
-          {% include carousel-video-poster.html href=video.href poster=video.poster title=video.title %}
+          {% include pages/work/carousel-video-poster.html href=video.href poster=video.poster title=video.title %}
         {% endfor %}
       </div>
     </div>
   </section>
-  {% include components/video-player.html %}
+  {% include miscellaneous/video-player.html %}
 </section>

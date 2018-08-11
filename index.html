@@ -1,20 +1,4 @@
 ---
 script_name: index
 ---
-<!-- TODO Pull into introduction include -->
-{% include sections/header/index.html %}
-<video autoplay
-  loop
-  id="video-background"
-  muted
-  playsinline
-  poster="{{site.baseurl}}/images/background-poster.webp">
-  <source src="{{site.baseurl}}/videos/video-720p.mp4" type="video/mp4">
-</video>
-<!-- <div id="video-background-cover"></div> -->
-<section id="introduction-section">
-  <h1>Welcome to OurVinyl Productions LLC</h1>
-  {% include components/video-link.html href="https://www.youtube.com/embed/bZ7ESyr2rFk?rel=0" text="Play Video" %}
-</section>
-{% include components/video-player.html %}
-{% include sections/footer/index.html %}
+{% include pages/index/page.html %}
