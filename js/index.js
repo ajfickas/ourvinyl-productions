@@ -1,73 +1,132 @@
 (function () {
-  var initializeVideoLinks = function () {
-    console.log('DEBUG: initializeVideoLinks');
-    document.addEventListener('DOMContentLoaded', function () {
-      console.log('DEBUG: initializeVideoLinks: DOMContentLoaded');
-      var closeButtonEl;
-      var videoEl;
-      var videoLinkEls;
-      var videoPlayerEl;
 
-      // Get elements
+  // Define modules
 
-      videoPlayerEl = document.getElementById('video-player');
-      videoLinkEls = document.querySelectorAll('.video-link');
-      closeButtonEl = videoPlayerEl.querySelector('.close-button');
-      videoContainer = videoPlayerEl.querySelector('.video-container');
+  var initializeVideoPlayer = function () {
+    var closeButtonEl;
+    var closeHandlers;
+    var openHandlers;
+    var videoEl;
+    var videoPlayerEl;
 
-      // Event handlers
+    // Initialize handlers
+    openHandlers = [];
+    closeHandlers = [];
 
-      function handleVideoLinkClick(event) {
-        console.log('DEBUG: handleVideoLinkClick: event: ', event);
-        event.preventDefault();
-        playVideo(event.currentTarget.getAttribute('href'));
+    // Get elements
+    videoPlayerEl = document.getElementById('video-player');
+    closeButtonEl = videoPlayerEl.querySelector('.close-button');
+    videoContainer = videoPlayerEl.querySelector('.video-container');
+
+    // Event handlers
+
+    function handleCloseButtonClick() {
+      close();
+      notify(closeHandlers);
+    }
+
+    // Updaters
+
+    function open(videoUrl) {
+      if (videoEl) {
+        videoEl.remove();
       }
 
-      function handleCloseButtonClick() {
-        closeVideo();
+      videoEl = document.createElement('iframe');
+      videoEl.setAttribute('allow', 'autoplay; encrypted-media');
+      videoEl.setAttribute('allowfullscreen', 'true');
+      videoEl.setAttribute('frameborder', '0');
+      videoEl.setAttribute('height', '315');
+      videoEl.setAttribute('src', videoUrl);
+      videoEl.setAttribute('width', '560');
+
+      videoContainer.appendChild(videoEl);
+
+      videoPlayerEl.classList.add('show');
+
+      notify(openHandlers);
+    }
+
+    function close() {
+      videoPlayerEl.classList.remove('show');
+
+      if (videoEl) {
+        videoEl.remove();
       }
+    }
 
-      // Updaters
+    // Subscribe functions
 
-      function playVideo(videoUrl) {
-        console.log('DEBUG: playVideo: videoUrl: ', videoUrl);
-        if (videoEl) {
-          videoEl.remove();
-        }
+    function onOpen(handler) {
+      openHandlers.push(handler);
+    }
 
-        videoEl = document.createElement('iframe');
-        videoEl.setAttribute('allow', 'autoplay; encrypted-media');
-        videoEl.setAttribute('allowfullscreen', 'true');
-        videoEl.setAttribute('frameborder', '0');
-        videoEl.setAttribute('height', '315');
-        videoEl.setAttribute('src', videoUrl);
-        videoEl.setAttribute('width', '560');
+    function onClose(handler) {
+      closeHandlers.push(handler);
+    }
 
-        videoContainer.appendChild(videoEl);
+    // Helpers
 
-        videoPlayerEl.classList.add('show');
-      }
-
-      function closeVideo() {
-        console.log('DEBUG: closeVideo');
-        videoPlayerEl.classList.remove('show');
-
-        if (videoEl) {
-          videoEl.remove();
-        }
-      }
-
-      // Add event listeners
-
-      closeButtonEl.addEventListener('click', handleCloseButtonClick);
-
-      Array.prototype.forEach.call(videoLinkEls, function (videoLinkEl) {
-        console.log('DEBUG: add event listener: videoLinkEl: ', videoLinkEl);
-        videoLinkEl.addEventListener('click', handleVideoLinkClick);
+    function notify(eventHandlers) {
+      eventHandlers.forEach(function (eventHandler) {
+        eventHandler();
       });
+    }
+
+    // Add event listeners
+    closeButtonEl.addEventListener('click', handleCloseButtonClick);
+
+    // Return public interface
+    return {
+      onClose: onClose,
+      onOpen: onOpen,
+      open: open,
+    };
+  };
+
+  var initializeVideoLinks = function (videoPlayer) {
+
+    // Get elements
+    var videoLinkEls = document.querySelectorAll('.video-link');
+
+    // Event handlers
+    function handleVideoLinkClick(event) {
+      event.preventDefault();
+      videoPlayer.open(event.currentTarget.getAttribute('href'));
+    }
+
+    // Add event listeners
+    Array.prototype.forEach.call(videoLinkEls, function (videoLinkEl) {
+      videoLinkEl.addEventListener('click', handleVideoLinkClick);
     });
   };
 
-  // Initialize
-  initializeVideoLinks();
+  var pauseVideoBackgroundWhenVideoPlayerIsOpen = function (options) {
+    var wasVideoBackgroundPlaying = false;
+
+    options.videoPlayer.onOpen(function () {
+      if (!options.videoBackgroundEl.paused) {
+        wasVideoBackgroundPlaying = true;
+        options.videoBackgroundEl.pause();
+      } else {
+        wasVideoBackgroundPlaying = false;
+      }
+    });
+
+    options.videoPlayer.onClose(function () {
+      if (wasVideoBackgroundPlaying) {
+        options.videoBackgroundEl.play();
+      }
+    });
+  };
+
+  // Initialize when DOM has been loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    var videoPlayer = initializeVideoPlayer();
+    initializeVideoLinks(videoPlayer);
+    pauseVideoBackgroundWhenVideoPlayerIsOpen({
+      videoBackgroundEl: document.getElementById('video-background'),
+      videoPlayer: videoPlayer,
+    });
+  });
 })();
