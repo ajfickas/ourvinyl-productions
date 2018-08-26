@@ -1,0 +1,5 @@
+{% assign title = "OurVinyl Productions" %}
+{% if page.title_prefix %}
+  {% assign title = page.title_prefix | append: " - " | append: title %}
+{% endif %}
+<title>{{ title }}</title>
