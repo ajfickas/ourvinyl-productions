@@ -80,9 +80,7 @@
   };
 
   var initializeVideoLinks = function () {
-    console.log('DEBUG: initializeVideoLinks');
     document.addEventListener('DOMContentLoaded', function () {
-      console.log('DEBUG: initializeVideoLinks: DOMContentLoaded');
       var closeButtonEl;
       var videoEl;
       var videoLinkEls;
@@ -97,7 +95,6 @@
       // Event handlers
 
       function handleVideoLinkClick(event) {
-        console.log('DEBUG: handleVideoLinkClick: event: ', event);
         event.preventDefault();
         playVideo(event.currentTarget.getAttribute('href'));
       }
@@ -109,7 +106,6 @@
       // Updaters
 
       function playVideo(videoUrl) {
-        console.log('DEBUG: playVideo: videoUrl: ', videoUrl);
         if (videoEl) {
           videoEl.remove();
         }
@@ -128,7 +124,6 @@
       }
 
       function closeVideo() {
-        console.log('DEBUG: closeVideo');
         videoPlayerEl.classList.remove('show');
 
         if (videoEl) {
@@ -141,7 +136,6 @@
       closeButtonEl.addEventListener('click', handleCloseButtonClick);
 
       Array.prototype.forEach.call(videoLinkEls, function (videoLinkEl) {
-        console.log('DEBUG: add event listener: videoLinkEl: ', videoLinkEl);
         videoLinkEl.addEventListener('click', handleVideoLinkClick);
       });
     });
