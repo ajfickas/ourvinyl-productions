@@ -1,6 +1,8 @@
 {% assign current_path = "/" | append: page.path %}
 {% assign link_path = include.href | append: ".html" %}
 {% if link_path == current_path %}
-  {% assign className = "active" %}
+  {% assign class_name = "active" %}
+{% else %}
+  {% assign class_name = "" %}
 {% endif %}
-<a class="{{className}}" href="{{site.baseurl}}{{include.href}}">{{ include.content }}</a>
+<a class="{{class_name}}" href="{{site.baseurl}}{{include.href}}">{{ include.content }}</a>
