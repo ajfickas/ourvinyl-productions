@@ -1,4 +1,5 @@
 <section id="about-section">
+  {% include layout/header.html %}
   {% include miscellaneous/section-header.html poster="/about/poster.jpg" subtitle="Why we do what we do" title="About Us" %}
   <div class="about-section-content-container">
     {% include miscellaneous/image-background.html class="about-content-left" url="/about/left.webp" %}
@@ -10,3 +11,4 @@
     {% include miscellaneous/image-background.html class="about-content-left" url="/about/right.webp" %}
   </div>
 </section>
+{% include layout/footer.html %}
