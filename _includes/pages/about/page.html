@@ -1,12 +1,16 @@
-<section id="about-section">
-  {% include miscellaneous/section-header.html poster="/about/poster.jpg" subtitle="Why we do what we do" title="About Us" %}
-  <div class="about-section-content-container">
-    {% include miscellaneous/image-background.html class="about-content-left" url="/about/left.webp" %}
-    <div class="about-content-center">
+<div class="page-image-background" style="background-image: url({{site.baseurl}}/images/about/poster.jpg)">
+  {% include layout/header.html %}
+  {% include miscellaneous/section-header.html subtitle="Why we do what we do" title="About Us" %}
+</div>
+<div class="about-container">
+  {% include miscellaneous/image-background.html class="about-content-left" url="/about/left.webp" %}
+  <div class="about-content-center">
+    <div class="story-title">
       <h3>OurVinyl<br>Productions</h3>
       <p class="subtitle">Works with you.</p>
-      <p class="story">This is a paragraph about the OurVinyl story and may go on for a good couple of lines like this so we can see how it will be laid out.</p>
     </div>
-    {% include miscellaneous/image-background.html class="about-content-left" url="/about/right.webp" %}
+    <p class="story">This is a paragraph about the OurVinyl story and may go on for a good couple of lines like this so we can see how it will be laid out.</p>
   </div>
-</section>
+  {% include miscellaneous/image-background.html class="about-content-left" url="/about/right.webp" %}
+</div>
+{% include layout/footer.html %}
