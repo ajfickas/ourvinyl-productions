@@ -17,7 +17,11 @@
     }
 
     li {
-      margin: 0 16px;
+      margin: 0 0 0 32px;
+
+      &:first-child {
+        margin: 0;
+      }
     }
 
     a {
@@ -38,6 +42,6 @@
   }
 
   .logo {
-    margin: 0 16px;
+    margin: 0 16px 16px;
   }
 }
