@@ -1,5 +1,6 @@
 .contact-container {
   display: flex;
+  flex-wrap: wrap;
 
   & > * {
     flex-basis: 0;
@@ -7,4 +8,4 @@
   }
 }
 
-@import 'pages/contact/subsection';
+@import 'pages/contact/section';
