@@ -21,5 +21,6 @@
   .content-container {
     @include centered-absolute;
     text-align: center;
+    width: 100%;
   }
 }

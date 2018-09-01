@@ -1,12 +1,18 @@
 .about-container {
   display: flex;
   height: 512px;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    height: 1024px;
+  }
 }
 
 .about-content-center {
   background-color: $dark-gray;
   color: white;
   flex-grow: 1;
+  min-width: 384px;
   position: relative;
   text-align: center;
 
@@ -45,10 +51,14 @@
   }
 }
 
-.about-content-left {
+.about-content-image-1 {
   flex-grow: 1;
 }
 
-.about-content-right {
+.about-content-image-2 {
   flex-grow: 1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
